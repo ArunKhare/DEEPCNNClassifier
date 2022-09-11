@@ -4,8 +4,8 @@ import os
 from pathlib import Path
 import logging
 
-logging.basicConfig(level=logging.INFO,format =['%(asctime)s']:"message")
-package_name = "deepclassifier"
+logging.basicConfig(level=logging.INFO,format =['%(asctime)s]:%(message)s')
+package_name = "deepClassifier"
 
 list_of_files = ["github/workflows/.gitkeep",
     f"src/{package_name}/__init__.py",
@@ -15,6 +15,9 @@ list_of_files = ["github/workflows/.gitkeep",
     f"src/{package_name}/pipeline/__init__.py",
     f"src/{package_name}/entity/__init__.py",
     f"src/{package_name}/constant/__init__.py",
+    "tests/__init__.py",
+    "test/unit/__init__.py",
+    "tests/integration/__init__.py",
     "config/config.yaml",
     "dvc.yaml",
     "init_setpup.sh",
@@ -36,4 +39,8 @@ list_of_files = ["github/workflows/.gitkeep",
 
         if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
             with open(filepath,"w") as f:
+                pass # create an emoty file
+                logging.info(f"Creating empty file: {filepath}")
+        else:
+            logging.info(f'{filename'} already exists')
             
