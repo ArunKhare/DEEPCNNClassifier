@@ -1,5 +1,4 @@
 import os
-from tkinter import E
 from box.exceptions import BoxValueError
 import yaml
 from deepClassifier import logger
