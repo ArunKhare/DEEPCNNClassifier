@@ -1,0 +1,8 @@
+name: CV application
+
+on:
+push:
+permission:
+
+job:
+  runs
