@@ -20,9 +20,81 @@ stages:
     - path: configs/config.yaml
       md5: 58154477eb3f4c9c399acfd393ded468
       size: 819
-    - path: params.yaml
-      md5: a27bded6e021855cfe85bb9ec67a7dc5
-      size: 191
     - path: src/deepClassifier/pipeline/stage_02_prepare_base_model
       md5: bb3cb8ae29982d61607760cbbc29e3bf
       size: 760
+    params:
+      params.yaml:
+        CLASSES: 2
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.02
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      md5: e789ded752154c3284cfd299c352c236.dir
+      size: 118053368
+      nfiles: 2
+  training:
+    cmd: python src/deepClassifier/pipeline/stage_03_training.py
+    deps:
+    - path: artifacts/data_ingestion/PetImages
+      md5: 3a5cf86541f22c236620ce5b952ad684.dir
+      size: 848866410
+      nfiles: 24998
+    - path: artifacts/prepare_base_model
+      md5: e789ded752154c3284cfd299c352c236.dir
+      size: 118053368
+      nfiles: 2
+    - path: configs/config.yaml
+      md5: 58154477eb3f4c9c399acfd393ded468
+      size: 819
+    - path: src/deepClassifier/components/prepare_callback.py
+      md5: db99ac6bde25270680aa114a40344cba
+      size: 885
+    - path: src/deepClassifier/pipeline/stage_03_training.py
+      md5: a2beb2ea28befbf985c421f6d2ca7a9b
+      size: 1004
+    params:
+      params.yaml:
+        AUGMENTATION: true
+        BATCH_SIZE: 16
+        EPOCHS: 1
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: artifacts/training/model.h5
+      md5: dac6bbd95b63b16d74f800cfd8f36d76
+      size: 59135136
+  evaluation:
+    cmd: python src/deepClassifier/pipeline/stage_04_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/PetImages
+      md5: 3a5cf86541f22c236620ce5b952ad684.dir
+      size: 848866410
+      nfiles: 24998
+    - path: artifacts/training/model.h5
+      md5: dac6bbd95b63b16d74f800cfd8f36d76
+      size: 59135136
+    - path: configs/config.yaml
+      md5: 58154477eb3f4c9c399acfd393ded468
+      size: 819
+    - path: src/deepClassifier/pipeline/stage_04_evaluation.py
+      md5: bfc194c1d34215d582d53b438336a8f2
+      size: 707
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: scores.json
+      md5: 04e0576c549627093c2e89a2ae1ca1d5
+      size: 72
