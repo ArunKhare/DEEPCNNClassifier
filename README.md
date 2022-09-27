@@ -12,3 +12,12 @@
 9. run tox for testing your package
 10. Update the dvc.yaml
 11. run "dvc reproduce" for running all the stages in pipelie
+
+remote_server_uri = "http://0.0.0.0:1234"
+mlflow.set_tracking_uri(remote_server_uri)
+tracking_uri_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
+mlflow server \
+--backend-store-uri sqlite:///mlflow.db \
+--default-artifact-root ./artifacts \
+--host 0.0.0.0 -p 1234   
