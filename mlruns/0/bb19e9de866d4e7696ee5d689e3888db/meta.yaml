@@ -1,0 +1,16 @@
+artifact_uri: ./mlruns/0/bb19e9de866d4e7696ee5d689e3888db/artifacts
+deleted_time: null
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: bb19e9de866d4e7696ee5d689e3888db
+run_uuid: bb19e9de866d4e7696ee5d689e3888db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1664342709195
+status: 1
+tags: []
+user_id: arunkhare
