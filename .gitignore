@@ -143,5 +143,4 @@ artifacts/
 >>>>>>> b15f23a74a5f03f7bb014f2585c2296018814afc
 /models
 scores.json
-mlflow_dir
 
