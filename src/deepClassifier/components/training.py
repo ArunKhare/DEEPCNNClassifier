@@ -55,6 +55,10 @@ class Training:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
 
+    def save_score(path: Path, model):
+        scores = {"loss": self.score[0], "accuracy": self.score[1]}
+        save_json(path=Path("scores.json"), data=scores)
+
     def train(self, callback_list: list):
         self.steps_per_epoch = (
             self.train_generator.samples // self.train_generator.batch_size
@@ -71,5 +75,6 @@ class Training:
             validation_data=self.valid_generator,
             callbacks=callback_list,
         )
-
+        
+        
         self.save_model(path=self.config.trained_model_path, model=self.model)
