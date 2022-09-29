@@ -15,6 +15,7 @@ scipy
 mlflow
 streamlit
 rangehttpserver
+scikit-learn
 -e .
 
 
