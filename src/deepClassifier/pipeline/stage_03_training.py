@@ -1,6 +1,5 @@
 from deepClassifier.config import ConfigurationManager
-from deepClassifier.components import Training
-from deepClassifier.components.prepare_callback import PrepareCallback
+from deepClassifier.components import Training, PrepareCallback
 from deepClassifier import logger
 
 STAGE_NAME = "Training stage"
@@ -21,6 +20,7 @@ def main():
 
 if __name__ == "__main__":
     try:
+        logger.info("********************************")
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")

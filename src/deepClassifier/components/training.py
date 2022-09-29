@@ -1,4 +1,4 @@
-from zipfile import ZipFile
+
 import tensorflow as tf
 from deepClassifier.entity import TrainingConfig
 from pathlib import Path
