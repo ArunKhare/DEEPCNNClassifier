@@ -1,6 +1,6 @@
-artifact_location: file:///C:/Users/arunk/ComputerVision/CNN/DEEPCNNClassifier/research/mlflow_dir/mlruns/0
-creation_time: 1664275708448
+artifact_location: ./mlruns/0
+creation_time: 1664387179396
 experiment_id: '0'
-last_update_time: 1664275708448
+last_update_time: 1664387179396
 lifecycle_stage: active
 name: Default
