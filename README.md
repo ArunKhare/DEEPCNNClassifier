@@ -45,6 +45,13 @@ docker build -t pred_service .
 docker run pred_service
 docker run -p 8501:8501 pred_service # port map the container port(host) to windows port
 
+<!-- Push to docker hub -->
+Tag the image:
+docker tag pred_service1 arunkhare/pred_service1
+docker tag firstimage YOUR_DOCKERHUB_NAME/firstimage
+
+docker push arunkhare/pred_service1:tagname
+
 fastapi API_UI
 rm -rf
 rm ~./condaarc
