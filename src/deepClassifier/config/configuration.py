@@ -24,7 +24,10 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             source_URL=config.source_URL,
             local_data_file=config.local_data_file,
-            unzip_dir=config.unzip_dir
+            unzip_dir=config.unzip_dir,
+            train_dir=config.train_dir,
+            test_dir=config.test_dir,
+            train_size=config.train_size
             )
 
         return data_ingestion_config
@@ -66,7 +69,7 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "PetImages")
+        training_data = os.path.dirname(training.training_data)
         create_directories([
             Path(training.root_dir)            
         ])
@@ -88,7 +91,7 @@ class ConfigurationManager:
         evaluation =self.config.evaluation 
         eval_config = EvaluationConfig(
             path_of_model=Path(evaluation.path_of_model),
-            training_data=Path(evaluation.trained_model_path),
+            test_data=Path(evaluation.test_data),
             mlflow_uri=evaluation.mlflow_uri,
             all_params=self.params,
             params_image_size=self.params.IMAGE_SIZE,
