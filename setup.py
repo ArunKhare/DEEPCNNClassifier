@@ -20,8 +20,8 @@ setuptools.setup(
     long_description_content="text\markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{SRC_REPO}",
     project_urls={
-        "Bug Tracker":f"https://github.com/{AUTHOR_USER_NAME}/{SRC_REPO}/issues",
+        "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{SRC_REPO}/issues",
     },
-    package_dir={"":"src"},
-    packages= setuptools.find_packages(where="src")
+    package_dir={"": "src"},
+    packages=setuptools.find_packages(where="src")
 )

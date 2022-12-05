@@ -1,29 +1,24 @@
-
-import os
-import _sqlite3
-import warnings
+import logging
 import sys
+import warnings
+from urllib.parse import urlparse
 
-import pandas as pd
+import mlflow.sklearn
 import numpy as np
+import pandas as pd
+from sklearn.linear_model import ElasticNet
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import ElasticNet
-from urllib.parse import urlparse
-import mlflow
-import mlflow.sklearn
-
-import logging
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
 
 def eval_metrics(actual, pred):
-    rmse = np.sqrt(mean_squared_error(actual, pred))
-    mae = mean_absolute_error(actual, pred)
-    r2 = r2_score(actual, pred)
-    return rmse, mae, r2
+    rmses = np.sqrt(mean_squared_error(actual, pred))
+    maes = mean_absolute_error(actual, pred)
+    r2s = r2_score(actual, pred)
+    return rmses, maes, r2s
 
 
 if __name__ == "__main__":

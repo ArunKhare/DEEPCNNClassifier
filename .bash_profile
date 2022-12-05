@@ -1,0 +1,1 @@
+eval "$('/C/Users/arunk/anaconda3/Scripts/conda.exe' 'shell.bash' 'hook')"

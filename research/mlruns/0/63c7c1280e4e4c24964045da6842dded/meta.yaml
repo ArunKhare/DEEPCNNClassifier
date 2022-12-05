@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/arunk/Deep%20Learning/DEEPCNNClassifier/research/mlruns/0/63c7c1280e4e4c24964045da6842dded/artifacts
+end_time: 1670011410324
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 63c7c1280e4e4c24964045da6842dded
+run_uuid: 63c7c1280e4e4c24964045da6842dded
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1670011406765
+status: 3
+tags: []
+user_id: arunkhare

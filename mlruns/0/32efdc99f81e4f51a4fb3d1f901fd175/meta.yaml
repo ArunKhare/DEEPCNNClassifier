@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/arunk/ComputerVision/CNN/DEEPCNNClassifier/mlruns/0/32efdc99f81e4f51a4fb3d1f901fd175/artifacts
+end_time: 1670011549845
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 32efdc99f81e4f51a4fb3d1f901fd175
+run_uuid: 32efdc99f81e4f51a4fb3d1f901fd175
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1670011546400
+status: 3
+tags: []
+user_id: arunkhare
