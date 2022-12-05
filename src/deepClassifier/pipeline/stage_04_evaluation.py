@@ -5,6 +5,7 @@ from deepClassifier import logger
 
 STAGE_NAME = "Evaluation stage"
 
+
 def main():
 
     config = ConfigurationManager()
@@ -12,6 +13,7 @@ def main():
     evaluation = Evaluation(valid_config)
     evaluation.evaluation()
     evaluation.save_score()
+
 
 if __name__ == '__main__':
     try:
