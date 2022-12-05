@@ -8,7 +8,9 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
-
+    train_dir: Path
+    test_dir: Path
+    train_size: float
 
 @dataclass(frozen=True)
 class PrepareBaseModelConifg:
@@ -51,7 +53,7 @@ class TrainingConfig:
 @dataclass(frozen=True)
 class EvaluationConfig:
     path_of_model: Path
-    training_data: Path
+    test_data: Path
     mlflow_uri: str
     all_params: dict
     params_image_size: list
