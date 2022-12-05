@@ -6,6 +6,7 @@ from deepClassifier import logger
 from deepClassifier.utils import get_size
 from tqdm import tqdm
 from pathlib import Path
+import splitfolders
 
 
 class DataIngestion:
@@ -49,3 +50,9 @@ class DataIngestion:
             updated_list_of_files = self._get_updated_list_of_files(list_of_files)
             for f in tqdm(updated_list_of_files):
                 self._preprocess(zf, f, self.config.unzip_dir)
+
+    def train_test_split(self):
+        logger.info(f"spliting data into train {self.config.train_size} and test")
+        input_folder = self.config.unzip_dir/Path('PetImages')
+        splitfolders.ratio(input_folder, output=self.config.unzip_dir, seed=42, ratio=(self.config.train_size,0,1-self.config.train_size))
+
