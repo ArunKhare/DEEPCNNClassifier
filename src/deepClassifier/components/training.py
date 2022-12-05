@@ -5,13 +5,13 @@ from pathlib import Path
 
 
 class Training:
-    def __init__(self, config: TrainingConfig):
-        self.config = config
+    def __init__(self, config: TrainingConfig) -> None:
+        self.config: TrainingConfig = config
 
-    def get_base_model(self):
+    def get_base_model(self) -> None:
         self.model = tf.keras.models.load_model(self.config.updated_base_model_path)
 
-    def train_valid_generator(self):
+    def train_valid_generator(self) -> None:
         datagenerator_kwargs = dict(rescale=1.0 / 255, validation_split=0.20)
 
         dataflow_kwargs = dict(
@@ -55,7 +55,7 @@ class Training:
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
 
-    def save_score(path: Path, model):
+    def save_score(path: Path):
         scores = {"loss": self.score[0], "accuracy": self.score[1]}
         save_json(path=Path("scores.json"), data=scores)
 
@@ -78,3 +78,4 @@ class Training:
         
         
         self.save_model(path=self.config.trained_model_path, model=self.model)
+

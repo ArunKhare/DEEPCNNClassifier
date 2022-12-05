@@ -1,10 +1,7 @@
 import os
-
-from zipfile import ZipFile
-import tensorflow as tf
 import time
+import tensorflow as tf
 from deepClassifier.entity import PrepareCallbacksConfig
-
 
 class PrepareCallback:
     def __init__(self, config: PrepareCallbacksConfig):

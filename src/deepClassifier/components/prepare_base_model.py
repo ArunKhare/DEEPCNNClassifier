@@ -1,10 +1,7 @@
-import imp
-from zipfile import ZipFile
+# from pathlib import Path
 import tensorflow as tf
-from pathlib import Path
 from deepClassifier.entity import PrepareBaseModelConfig
-
-
+from pathlib import Path
 class PrepareBaseModel:
     def __init__(self, config: PrepareBaseModelConfig):
         self.config = config
@@ -20,10 +17,10 @@ class PrepareBaseModel:
     @staticmethod
     def _prepare_full_model(model, classes, freeze_all, freeze_till, learning_rate):
         if freeze_all:
-            for layer in model.layers:
+            for _ in model.layers:
                 model.trainable = False
         elif (freeze_till is not None) and (freeze_till > 0):
-            for layer in model.layers[:-freeze_till]:
+            for _ in model.layers[:-freeze_till]:
                 model.trainable = False
 
         flatten_in = tf.keras.layers.Flatten()(model.output)
@@ -55,3 +52,4 @@ class PrepareBaseModel:
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
+

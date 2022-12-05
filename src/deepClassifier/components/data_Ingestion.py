@@ -31,7 +31,6 @@ class DataIngestion:
             for f in list_of_files
             if f.endswith(".jpg") and ("Cat" in f or "Dog" in f)
         ]
-
     def _preprocess(self, zf: ZipFile, f: str, working_dir: str):
         target_filepath = os.path.join(working_dir, f)
         if not os.path.exists(target_filepath):
