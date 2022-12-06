@@ -69,7 +69,7 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.dirname(training.training_data)
+        training_data = self.config.training.training_data
         create_directories([
             Path(training.root_dir)            
         ])
@@ -88,7 +88,7 @@ class ConfigurationManager:
         return training_config
 
     def get_validation_config(self) -> EvaluationConfig:
-        evaluation =self.config.evaluation 
+        evaluation = self.config.evaluation
         eval_config = EvaluationConfig(
             path_of_model=Path(evaluation.path_of_model),
             test_data=Path(evaluation.test_data),

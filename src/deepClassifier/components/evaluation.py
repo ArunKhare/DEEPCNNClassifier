@@ -1,10 +1,10 @@
-from deepClassifier.config.configuration import EvaluationConfig
 from pathlib import Path
-from deepClassifier.utils import create_directories,load_json,save_json
-import tensorflow as tf
+from urllib.parse import urlparse
 import mlflow
 import mlflow.keras
-from urllib.parse import urlparse
+import tensorflow as tf
+from deepClassifier.config.configuration import EvaluationConfig
+from deepClassifier.utils import save_json
 
 
 class Evaluation:
@@ -29,7 +29,7 @@ class Evaluation:
         )
 
         self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.training_data,
+            directory=self.config.test_data,
             subset="validation",
             shuffle=False,
             **dataflow_kwargs
@@ -39,7 +39,6 @@ class Evaluation:
     @staticmethod
     def load_model(path: Path) -> tf.keras.Model:
         return tf.keras.models.load_model(path)
-
 
     def evaluation(self):
         self.model = self.load_model(self.config.path_of_model)
