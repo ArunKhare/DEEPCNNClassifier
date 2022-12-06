@@ -48,7 +48,8 @@ class TrainingConfig:
     params_batch_size: int
     params_is_augmentation: bool
     params_image_size: list
-
+    prediction_root: Path
+    prediction_model_path: Path
 
 @dataclass(frozen=True)
 class EvaluationConfig:
@@ -58,7 +59,3 @@ class EvaluationConfig:
     all_params: dict
     params_image_size: list
     params_batch_size: int
-
-@dataclass(frozen=True)
-class PredictionConfig:
-    prediction_service: Path

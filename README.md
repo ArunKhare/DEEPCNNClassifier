@@ -49,9 +49,6 @@ python <script.py>
 
 STEP 3: https://dagshub.com/ArunKhare/DEEPCNNClassifier -> Remote -> MLflow -> Go to mlflow ui
 Use context manager of mlflow to start run and then log metrics, params and model
-https://dagshub.com/ArunKhare/DEEPCNNClassifier
-https://dagshub.com/ArunKhare/DEEPCNNClassifier.mlflow/#/experiments/0
-https://dagshub.com/ArunKhare/DEEPCNNClassifier.mlflow/#/models
 
 ------------------------------------------------------------
 Prediction Service:

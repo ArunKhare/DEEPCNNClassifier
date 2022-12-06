@@ -75,7 +75,6 @@ class Training:
             validation_data=self.valid_generator,
             callbacks=callback_list,
         )
-        
-        
-        self.save_model(path=self.config.trained_model_path, model=self.model)
 
+        self.save_model(path=self.config.trained_model_path, model=self.model)
+        self.save_model(path=self.config.prediction_model_path, model=self.model)

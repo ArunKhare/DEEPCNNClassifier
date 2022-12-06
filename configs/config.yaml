@@ -23,8 +23,8 @@ training:
   root_dir: artifacts/training
   trained_model_path: artifacts/training/model.h5
   training_data: artifacts/data_ingestion/train
-  
-prediction_root: prediction_service
+  prediction_root: prediction_service
+  prediction_model_path: prediction_service/model.h5
 
 evaluation:
   path_of_model: artifacts/training/model.h5

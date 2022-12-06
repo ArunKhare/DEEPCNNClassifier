@@ -70,6 +70,8 @@ class ConfigurationManager:
         prepare_base_model = self.config.prepare_base_model
         params = self.params
         training_data = self.config.training.training_data
+        prediction_root= self.config.training.prediction_root
+        prediction_model_path = self.config.training.prediction_model_path
         create_directories([
             Path(training.root_dir)            
         ])
@@ -82,7 +84,9 @@ class ConfigurationManager:
             params_epochs=params.EPOCHS,
             params_batch_size=params.BATCH_SIZE,
             params_is_augmentation=params.AUGMENTATION,
-            params_image_size=params.IMAGE_SIZE
+            params_image_size=params.IMAGE_SIZE,
+            prediction_root=Path(prediction_root),
+            prediction_model_path=Path(prediction_model_path)
         )
 
         return training_config
