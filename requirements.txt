@@ -13,3 +13,4 @@ deepclassifier~=0.0.0
 pytest~=7.1.3
 setuptools~=63.4.1
 pillow~=9.2.0
+python-dotenv~=0.21.0

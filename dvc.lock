@@ -109,6 +109,9 @@ stages:
   cicd:
     cmd: python src/deepClassifier/pipeline/stage_05_CICD.py
     deps:
+    - path: .env
+      md5: 52e6e116394c40cf4c8076291944829f
+      size: 184
     - path: configs/config.yaml
       md5: 7a1dfbc7c9f40c8683fc6a41afd026b8
       size: 1235

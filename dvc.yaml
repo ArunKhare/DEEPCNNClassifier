@@ -58,4 +58,5 @@ stages:
     cmd: python src/deepClassifier/pipeline/stage_05_CICD.py
     deps:
       - src/deepClassifier/pipeline/stage_05_CICD.py
+      - .env
       - configs/config.yaml

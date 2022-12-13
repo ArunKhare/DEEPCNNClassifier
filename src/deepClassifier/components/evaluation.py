@@ -5,12 +5,15 @@ import mlflow.keras
 import tensorflow as tf
 from deepClassifier.config.configuration import EvaluationConfig
 from deepClassifier.utils import save_json
+from dotenv import load_dotenv
 import os
+#
+#
+# if load_dotenv():
+#     MLFLOW_TRACKING_URI = os.environ.get("MLFLOW_TRACKING_URI")
+#     MLFLOW_TRACKING_PASSWORD = os.environ.get('MLFLOW_TRACKING_PASSWORD')
+#     MLFLOW_TRACKING_USERNAME = os.environ["MLFLOW_TRACKING_USERNAME"]
 
-
-os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/ArunKhare/DEEPCNNClassifier.mlflow"
-os.environ["MLFLOW_TRACKING_USERNAME"] = "ArunKhare"
-os.environ["MLFLOW_TRACKING_PASSWORD"] = "73344eca5240dfe224b69018f8be21b9fd8df6c4"
 
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
@@ -55,6 +58,8 @@ class Evaluation:
         save_json(path=Path("scores.json"), data=scores)
 
     def log_into_mlflow(self):
+        if load_dotenv():
+            print("environment variable loaded")
         mlflow.set_registry_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
