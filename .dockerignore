@@ -1,4 +1,5 @@
 # Ignore everything
 **
-# Allow /src/web/public directory
+# Allow /directory
 !/prediction_service/**
+!app.py
