@@ -78,8 +78,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+#        id: login-ecr
+#        uses: aws-actions/amazon-ecr-login@v1
+        run: aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username arunkhare --password Sun1@moon2
 
 
       - name: Pull latest images
