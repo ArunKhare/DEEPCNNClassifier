@@ -1,0 +1,4 @@
+# Ignore everything
+**
+# Allow /src/web/public directory
+!/prediction_service/**
