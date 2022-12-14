@@ -3,3 +3,4 @@
 # Allow /directory
 !/prediction_service/**
 !app.py
+!model.h5
