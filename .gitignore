@@ -144,3 +144,4 @@ artifacts/
 scores.json
 
 /src/deepClassifier/components/testenvvairalbe.py
+.idea
